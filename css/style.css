@@ -1,0 +1,89 @@
+/* HEADER  */
+header {
+    /* width: 600px; */
+    height: 60px;
+    /* margin: 0 0 9.2px; */
+    padding: 8.5px 25px 0 24.5px;
+    background-color: orange;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo {
+    width: 66.5px;
+    height: 11px;
+    margin: 3.5px 400.8px 8px 0;
+    object-fit: contain;
+}
+
+.nav-bar li {
+    padding: 1rem;
+    /* font-family: Montserrat; */
+    /* font-size: 9.5px; */
+    line-height: 1.2;
+    text-align: center;
+    color: #fff;
+
+}
+
+/* .Gallery {
+    width: 36.7px;
+    height: 22.8px;
+    margin: 0 4.5px 0 0;
+    font-family: Montserrat;
+    font-size: 9.5px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    color: #040a2c;
+} */
+
+/* .About {
+    width: 36.7px;
+    height: 22.8px;
+    margin: 0 0 0 4.8px;
+    font-family: Montserrat;
+    font-size: 9.5px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+} */
+
+
+
+/* GALLERY */
+
+.main-gallery {
+    width: 80%;
+    height: 466px;
+    margin: 30px auto;
+    /* padding: 13.5px 24.5px 13.5px 25px; */
+    background-color: #e3e3e3;
+}
+
+
+
+
+/* HELPERS */
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
