@@ -9,13 +9,10 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body onload="onInit()">
 
     <header class="flex">
         <img src="./DESIGN/LOGO/LOGO.png" class="logo">
-        <!-- <img src="./Layer 2.jpg" srcset="img/layer-2@2x.png 2x,
-                     img/layer-2@3x.png 3x" class="Layer-2"> -->
-        <!-- <img src="./DESIGN/LOGO/LOGO.png" alt=""> -->
         <nav class="nav-bar">
             <ul class=" clean-list flex">
                 <li>Gallery</li>
@@ -27,16 +24,89 @@
     </header>
 
     <main>
-        <section class="meme-gen-main" hidden></section>
-        <section class="main-gallery grid">
 
 
+        <!--EDITOR SECTION-->
+        <section class="meme-gen-editor flex">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="350" width="350">
+            </div>
+            <!-- onclick=" canvasClicked(event) -->
+            <div class="control-main grid">
 
+                <input class="control-btn control-title" type="text" placeholder="type text here"
+                    oninput="onWriteTxt(this.value)">
+
+                <button class="control-btn up-and-down" title="Change Selected Title" onclick="onSwitchLine()"><img
+                        src="./img/controls/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+
+                <button class="control-btn add" title="Add new title"><img src="./img/controls/add.png"
+                        onclick="onAddLine()"></button>
+
+                <button class="control-btn trash" title="Remove title" onclick="onRemoveLine()"><img
+                        src="./img/controls/trash.png"></button>
+
+                <button class="control-btn increase-font" title="Increase font size"
+                    onclick="onInchangeFontSize(1)"><img src="./img/controls/increase font - icon.png"></button>
+
+                <button class="control-btn decrease-font" onclick="onInchangeFontSize(-1)"
+                    title="Decrease font size"><img src="./img/controls/decrease font - icon.png"></button>
+
+                <label class="control-btn color-text" title="Change text color">
+
+                    <input type="color" class="color-picker" oninput="onChangeColor(this.value)"
+                        class="color-text"></input>
+                    <img class="color" src="./img/controls/paint-board-and-brush.png" />
+
+                </label>
+                <label class="control-btn color-stroke" title="Change stroke color">
+
+                    <input type="color" class="color-picker" oninput="onChangeColorStroke(this.value)"
+                        class="color-text">
+                    </input>
+                    <img class="stroke" src="./ICONS/text stroke.png" />
+
+                </label>
+
+                <button class="control-btn align-left" title="Align text left" onclick="onSetTextAlign('left')"><img
+                        src="./img/controls/align-to-left.png"></button>
+
+                <button class="control-btn align-center" title="Align text center"
+                    onclick="onSetTextAlign('center')"><img src="./img/controls/center-text-alignment.png"></button>
+
+                <button class="control-btn align-right" title="Align text right" onclick="onSetTextAlign('right')"><img
+                        src="./img/controls/align-to-right.png"></button>
+
+                <select title="Font option" class=" control-btn control-font-picker" oninput="onChangeFont(this.value)">
+                    <option value="impact">Impact</option>
+                    <option value="Mclaren">Mclaren</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Arial Black">Arial Black</option>
+                    <option value="Comic Sans MS">Comic Sans</option>
+                    <option value="Lucida Console">Lucida Console</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                </select>
+
+                <button class="control-btn save">Save </button>
+                <!-- <button class="control-btn download">Download </button>
+                <button class="control-btn share">Share </button> -->
+
+            </div>
         </section>
+        <section class="main-gallery grid"> </section>
 
 
     </main>
 
+
+
+    <footer>
+        <img src="./DESIGN/LOGO/LOGO.png" class="logo logo-footer">
+        <h3>Meme Generator By Moshe Rozner</h3>
+        <small>all rights reserved 2021 </small>
+
+    </footer>
 
     <script src="./js/services/meme.service.js"></script>
     <!-- <script src="./js/meme.controller.js"></script> -->
