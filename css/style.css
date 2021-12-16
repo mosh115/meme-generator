@@ -1,19 +1,31 @@
 /* FONTS */
 
+@font-face {
+    font-family: Montserrat;
+    src: url(./fonts/Montserrat-Regular.ttf);
+}
+
+
+@font-face {
+    font-family: Montserrat-Thin;
+    src: url(./fonts/Montserrat-Thin.ttf);
+}
 
 
 
-
-
+html {
+    font-family: 'Montserrat', sans-serif;
+}
 
 
 
 
 /* HEADER  */
 header {
-    /* width: 600px; */
-    height: 60px;
-    /* margin: 0 0 9.2px; */
+
+    height: 80px;
+    overflow: hidden;
+
     padding: 8.5px 25px 0 24.5px;
     background-color: #ff7f00;
     justify-content: space-between;
@@ -23,15 +35,37 @@ header {
 
 .logo {
     width: 66.5px;
-    height: 11px;
-    margin: 3.5px 400.8px 8px 0;
+    height: 40px;
+    padding: 10px 20px;
     object-fit: contain;
+
 }
 
 .nav-bar li {
     padding: 1rem;
-    /* font-family: Montserrat; */
-    /* font-size: 9.5px; */
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+    text-align: center;
+    color: #fff;
+    /* border-right: 1px solid grey; */
+
+}
+
+.nav-bar li:not(:last-child) {
+
+    border-right: 1px solid grey;
+
+}
+
+.nav-bar li:active {
+
+    color: black;
+
+}
+
+.nav-bar li {
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.2;
     text-align: center;
     color: #fff;
@@ -41,6 +75,7 @@ header {
 
 /* MEME EDITOR */
 .meme-gen-editor {
+    display: none;
 
     width: 100%;
     height: 80%;
@@ -71,14 +106,23 @@ canvas {
     /* max-height: initial; */
     grid-gap: 10px;
     grid-template-columns: repeat(5, 50px);
-    grid-template-rows: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px) 40px;
 
     grid-template-areas:
         "title title title title title"
         ".     updown  add   trash  ."
         "inc    dec   left   center   right"
         "font   font   font   color  stroke"
-        ".      save     save   save    .  ";
+        ".      save     save   save    .  "
+        ". back back  back .";
+
+}
+
+.control-btn.back {
+
+    grid-area: back;
+    height: 40px;
+    background-color: coral;
 
 }
 
@@ -115,6 +159,7 @@ canvas {
 .save {
     grid-area: save;
     background-color: #ff7f00;
+
 }
 
 
@@ -163,7 +208,6 @@ canvas {
     transform: translate(3px, -25px);
 
     /* transform: translate(12px, -12px); */
-
 }
 
 .stroke {
@@ -212,6 +256,10 @@ footer h3 {
     text-transform: uppercase;
 }
 
+footer {
+    font-family: 'Montserrat-Thin', sans-serif;
+}
+
 footer .logo-footer {
     margin: 0 auto;
 }
@@ -232,6 +280,11 @@ footer .logo-footer {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.control-btn.save a {
+    text-decoration: none;
+    color: black;
 }
 
 

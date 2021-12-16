@@ -17,7 +17,7 @@
             <ul class=" clean-list flex">
                 <li>Gallery</li>
                 <li>About</li>
-                <li>saved</li>
+                <li>Saved</li>
             </ul>
         </nav>
 
@@ -28,10 +28,11 @@
 
         <!--EDITOR SECTION-->
         <section class="meme-gen-editor flex">
+
             <div class="canvas-container">
                 <canvas id="my-canvas" height="350" width="350">
             </div>
-            <!-- onclick=" canvasClicked(event) -->
+
             <div class="control-main grid">
 
                 <input class="control-btn control-title" type="text" placeholder="type text here"
@@ -88,9 +89,10 @@
                     <option value="Times New Roman">Times New Roman</option>
                 </select>
 
-                <button class="control-btn save">Save </button>
-                <!-- <button class="control-btn download">Download </button>
-                <button class="control-btn share">Share </button> -->
+                <button class="control-btn save"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a>
+                </button>
+                <button class="control-btn back" onclick="onBackToGallery()">Back to Gallery</button>
+
 
             </div>
         </section>

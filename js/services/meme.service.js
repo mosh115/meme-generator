@@ -4,7 +4,7 @@ var gImgs = [];
 
 const gMeme = {
     selectedImgId: 0,
-    // imgUrl:none,
+    // imgUrl: none,
     selectedLineIdx: 0,
     lines: [
         {
@@ -16,8 +16,6 @@ const gMeme = {
             align: 'left',
             color: 'black',
             stroke: 'white',
-            posX: 10,
-            posY: 5,
         }]
 }
 
@@ -108,8 +106,6 @@ function addLine(canvasHeight) {
         align: 'left',
         color: 'black',
         stroke: 'white',
-        posX: 10,
-        posY: 0,
     })
     switchLine(true)
 }
@@ -155,6 +151,7 @@ function setDim(w, h) {
     gMeme.lines[gMeme.selectedLineIdx].dim.w = w
 
 }
+
 function setDimX(x) {
     gMeme.lines[gMeme.selectedLineIdx].dim.x = x
 
@@ -169,13 +166,29 @@ function getLineSelected() {
     return gMeme.lines[gMeme.selectedLineIdx]
 }
 
-
 function moveLine(dx, dy) {
     gMeme.lines[gMeme.selectedLineIdx].dim.x += dx
     gMeme.lines[gMeme.selectedLineIdx].dim.y += dy
 
 }
+
 function changeFont(font) {
     gMeme.lines[gMeme.selectedLineIdx].font = font
 
 }
+
+function clearMeme() {
+    gMeme.selectedLineIdx = 0,
+        gMeme.lines = [
+            {
+                dim: { x: 10, y: 10, w: 0, h: 0 },
+                isDrag: false,
+                txt: 'Type text here',
+                fontSize: 30,
+                font: 'impact',
+                align: 'left',
+                color: 'black',
+                stroke: 'white',
+            }]
+}
+

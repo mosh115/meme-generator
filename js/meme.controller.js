@@ -1,5 +1,5 @@
 'use strict'
-
+var isDownload = false
 var gCanvas;
 var gCtx;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
@@ -9,20 +9,12 @@ var isDown = false
 
 function onInit() {
     renderGallery()
-    renderMeme()
-    addListeners()
-    // resizeCanvas()
-    // window.addEventListener('resize', resizeCanvas)
+    document.querySelector('.meme-gen-editor').style.display = 'none'
+
 
 }
 
-// function resizeCanvas() {
-//     var elContainer = document.querySelector('.canvas-container');
 
-//     gCanvas.width = elContainer.offsetWidth - 30
-//     gCanvas.height = elContainer.offsetHeight - 30;
-//     renderMeme()
-// }
 
 function renderGallery() {
     const imgs = getImgs()
@@ -38,14 +30,17 @@ function renderGallery() {
 function onImgSelect(imgId) {
     setMemeImg(imgId)
     renderMeme()
+    addListeners()
 
-    document.querySelector('.main-gallery').style.visibility = 'hidden'
+    document.querySelector('.main-gallery').style.display = 'none'
+    document.querySelector('.meme-gen-editor').style.display = 'block'
+    document.querySelector('.meme-gen-editor').style.display = 'flex'
 }
 
 function renderMeme() {
     const meme = getMeme()
-    const img = gImgs[1]
-    // getImg(meme.selectedImgId);
+
+    const img = getImg(meme.selectedImgId);
     const newImg = new Image();
     newImg.src = img.url
 
@@ -73,6 +68,7 @@ function renderMeme() {
 
             //border line selected
             if (idx === meme.selectedLineIdx) {
+                // if (isDownload) return
 
                 document.querySelector('.control-title').value = line.txt
                 let text = gCtx.measureText(line.txt)
@@ -88,30 +84,7 @@ function renderMeme() {
     }
 }
 
-// function drawRect(x, y, width, height, align) {
 
-//     // console.log('draw')
-
-//     // switch (align) {
-//     //     case 'left':
-//     //         x = 5
-//     //         break;
-//     //     case 'right':
-//     //         x = gCanvas.width - width
-//     //         break;
-//     //     case 'center':
-//     //         x = gCanvas.width / 2 - width / 2
-//     //         break;
-//     // }
-//     setDim(width, height)
-
-//     gCtx.beginPath()
-//     gCtx.lineWidth = 3
-//     gCtx.strokeStyle = 'red';
-//     gCtx.rect(x, y, width, height);
-//     gCtx.stroke();
-//     gCtx.closePath();
-// }
 
 function onWriteTxt(txt) {
     setLineTxt(txt)
@@ -230,5 +203,22 @@ function onChangeFont(font) {
 function onChangeColorStroke(color) {
     setColorStroke(color)
     renderMeme()
+}
 
+function onBackToGallery() {
+    document.querySelector('.meme-gen-editor').style.display = 'none'
+    document.querySelector('.main-gallery').style.display = 'block'
+    document.querySelector('.main-gallery').style.display = 'grid'
+    // document.querySelector('.meme-gen-editor').style.display = 'flex'
+    clearMeme()
+
+}
+
+function onDownloadCanvas(elLink) {
+    isDownload = true;
+    renderMeme()
+    const data = gCanvas.toDataURL();
+    elLink.href = data;
+    elLink.download = 'awesome-meme';
+    isDownload = false;
 }
