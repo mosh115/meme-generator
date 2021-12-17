@@ -222,3 +222,7 @@ function onDownloadCanvas(elLink) {
     elLink.download = 'awesome-meme';
     isDownload = false;
 }
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
+}
